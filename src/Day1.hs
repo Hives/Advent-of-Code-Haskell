@@ -10,9 +10,7 @@ fuelForMassPlusFuelForFuel mass = recurse (fuelForMass mass, 0)
  where
   recurse (0, runningTotal) = runningTotal
   recurse (fuel, runningTotal) =
-    let fuelForFuel = fuelForMass fuel
-    in  recurse (fuelForFuel, runningTotal + fuel)
+    recurse (fuelForMass fuel, runningTotal + fuel)
 
 fuelForMasses :: [Int] -> Int
-fuelForMasses []       = 0
-fuelForMasses (x : xs) = (fuelForMassPlusFuelForFuel x) + (fuelForMasses xs)
+fuelForMasses = foldr ((+) . fuelForMassPlusFuelForFuel) 0
