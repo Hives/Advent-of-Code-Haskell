@@ -1,6 +1,7 @@
 module Main where
 
-import Lib
+import           Day1
+import           Day1Input
 
 main :: IO ()
-main = someFunc
+main = print $ fuelForMasses moduleMasses
