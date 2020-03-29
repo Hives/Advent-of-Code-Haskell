@@ -62,10 +62,12 @@ desiredOutput = 19690720
 day2Part2 :: Int
 day2Part2 =
   let
-    (manyExecutions, desiredExecution) =
+    (manyExecutions, desiredExecution, noun, verb) =
       ( map (\(noun, verb) -> ((noun, verb), getOutputOfExecution noun verb))
             manyNounsAndVerbs
       , fst $ head $ filter (\(_, output) -> output == desiredOutput)
                             manyExecutions
+      , fst desiredExecution
+      , snd desiredExecution
       )
-  in  100 * fst desiredExecution + snd desiredExecution
+  in  100 * noun + verb
