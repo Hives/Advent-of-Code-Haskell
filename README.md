@@ -39,5 +39,5 @@ returns a list containing a single integer representing the shortest number of
 steps taken to get from the origin to the point along both wires, if the point
 is a crossing point, otherwise it returns an empty list.  Hard to give a good
 name to that! This is a problem I often have writing FP code it seems hard to
-break algorithms down into functions which are simple enough to be named easily
-- I wonder if there's something I'm missing...
+break algorithms down into functions which are simple enough to be named easily.
+I wonder if there's something I'm missing...
