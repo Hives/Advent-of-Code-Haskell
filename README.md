@@ -32,7 +32,10 @@ getCrossingDistances wire1 wire2 = foldl (\acc w -> f w wire2 ++ acc) [] wire1
 How to make this more readable? Pull out `f` and `g` from those nested `where`
 blocks? Give them better names? It's hard naming functions that deal with tuples
 though... e.g.`f` deals with a tuple of type `(Point, Int)`, containing a point
-on the wire, and the number steps taken to get to that point from the origin.
-Hard to give a good name to that tuple, and hence to a function that deals with
-it. This is a problem I often have writing FP code - I wonder if there's
-something I'm missing.
+on a wire, and the number steps taken to get to that point from the origin. It
+returns a list containing a single integer representing the shortest number of
+steps taken to get from the origin to the point along both wires, if the point
+is a crossing point, otherwise it returns an empty list.  Hard to give a good
+name to that! This is a problem I often have writing FP code it seems hard to
+break algorithms down into functions which are simple enough to be named easily
+- I wonder if there's something I'm missing...
