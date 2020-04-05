@@ -1,5 +1,11 @@
 module Day3Input where
 
+example11 = ["R8", "U5", "L5", "D3"]
+example12 = ["U7", "R6", "D4", "L4"]
+
+example21 = ["R75", "D30", "R83", "U83", "L12", "D49", "R71", "U7", "L72"]
+example22 = ["U62", "R66", "U55", "R34", "D71", "R55", "D58", "R83"]
+
 puzzleInput1 =
   [ "R999"
   , "U626"
