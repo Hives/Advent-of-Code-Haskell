@@ -13,4 +13,26 @@ Day 1 part 1: 3471229
 Day 1 part 2: 5203967
 Day 2 part 1: 3306701
 Day 2 part 2: 7621
+Day 3 part 1: 399
+Day 3 part 2: 15678
 ```
+
+## Thoughts etc.
+
+Some fairly gnarly-looking functions in Day 3, e.g. `getCrossingDistances`:
+
+```haskell
+getCrossingDistances :: [(Point, Int)] -> [(Point, Int)] -> [Int]
+getCrossingDistances wire1 wire2 = foldl (\acc w -> f w wire2 ++ acc) [] wire1
+ where
+  f (point1, steps1) wire2 = if null g then [] else [steps1 + minimum g]
+    where g = map snd (filter (\(point2, steps2) -> point1 == point2) wire2)
+```
+
+How to make this more readable? Pull out `f` and `g` from those nested `where`
+blocks? Give them better names? It's hard naming functions that deal with tuples
+though... e.g.`f` deals with a tuple of type `(Point, Int)`, containing a point
+on the wire, and the number steps taken to get to that point from the origin.
+Hard to give a good name to that tuple, and hence to a function that deals with
+it. This is a problem I often have writing FP code - I wonder if there's
+something I'm missing.
