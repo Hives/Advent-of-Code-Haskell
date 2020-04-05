@@ -17,6 +17,8 @@ Day 3 part 1: 399
 Day 3 part 2: 15678
 ```
 
+Warning: Day 3 is slow (~13 minutes on this laptop)
+
 ## Thoughts etc.
 
 Some fairly gnarly-looking functions in Day 3, e.g. `getCrossingDistances`:
