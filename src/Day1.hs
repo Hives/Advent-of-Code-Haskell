@@ -8,14 +8,13 @@ fuelForMass mass | fuel < 0  = 0
   where fuel = floor (fromIntegral mass / 3) - 2
 
 day1Part1 :: Int
-day1Part1 = sum $ map (\m -> fuelForMass m) moduleMasses
+day1Part1 = sum $ map fuelForMass moduleMasses
 
 fuelForMassPlusFuelForFuel :: Int -> Int
-fuelForMassPlusFuelForFuel mass = recurse (fuelForMass mass, 0)
+fuelForMassPlusFuelForFuel mass = f (fuelForMass mass, 0)
  where
-  recurse (0, runningTotal) = runningTotal
-  recurse (fuel, runningTotal) =
-    recurse (fuelForMass fuel, runningTotal + fuel)
+  f (0   , acc) = acc
+  f (fuel, acc) = f (fuelForMass fuel, acc + fuel)
 
 fuelForMasses :: [Int] -> Int
 fuelForMasses = foldr ((+) . fuelForMassPlusFuelForFuel) 0
