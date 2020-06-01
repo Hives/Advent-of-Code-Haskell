@@ -3,18 +3,18 @@ module Day2 where
 import           Day2Input
 
 replaceNthPos :: Int -> Int -> [Int] -> [Int]
-replaceNthPos _ _ [] = error $ "Ran out of list elements"
+replaceNthPos _ _ [] = error "Ran out of list elements"
 replaceNthPos n newVal (a : as)
   | n == 0    = newVal : as
   | otherwise = a : replaceNthPos (n - 1) newVal as
 
 readPos :: Int -> [Int] -> Int
-readPos _ [] = error $ "Ran out of list elements"
+readPos _ [] = error "Ran out of list elements"
 readPos n (a : as) | n == 0    = a
                    | otherwise = readPos (n - 1) as
 
 readReferredPos :: Int -> [Int] -> Int
-readReferredPos _ []      = error $ "Ran out of list elements"
+readReferredPos _ []      = error "Ran out of list elements"
 readReferredPos n program = let m = readPos n program in readPos m program
 
 execute :: Int -> [Int] -> [Int]
